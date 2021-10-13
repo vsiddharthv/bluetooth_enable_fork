@@ -43,7 +43,9 @@
 	<false/>
 	<key>NSBonjourServices</key>
 	<array>
-	    <string>_dartobservatory._tcp</string>
+		<string>_dartobservatory._tcp</string>
 	</array>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>This example app needs Bluetooth to work.</string>
 </dict>
 </plist>
