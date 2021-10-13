@@ -9,6 +9,14 @@ public class SwiftBluetoothEnablePlugin: NSObject, FlutterPlugin {
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+      switch (call.method) {
+      case "enableBluetooth":
+          print("Activating bluetooth...");
+          break;
+      default:
+          print("Unsupported method: " + call.method)
+          break;
+      }
     result("iOS " + UIDevice.current.systemVersion)
   }
 }
