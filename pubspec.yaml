@@ -24,4 +24,4 @@ flutter:
         package: com.hui.bluetooth_enable
         pluginClass: BluetoothEnablePlugin
       ios:
-        pluginClass: SwiftBluetoothEnablePlugin
+        pluginClass: BluetoothEnablePlugin
