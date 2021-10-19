@@ -1,6 +1,7 @@
 import Flutter
 import UIKit
 import CoreBluetooth
+import os.log
 
 public class SwiftBluetoothEnablePlugin: NSObject, FlutterPlugin, CBCentralManagerDelegate {
     var centralManager: CBCentralManager!
@@ -9,7 +10,7 @@ public class SwiftBluetoothEnablePlugin: NSObject, FlutterPlugin, CBCentralManag
     
     public func centralManagerDidUpdateState(_ central: CBCentralManager) {
         lastKnownState = central.state;
-        print("central.state is " + _getStateString(state: lastKnownState));
+        os_log("central.state is: %@", log: .default, type: .debug, _getStateString(state: lastKnownState));
         
         if (lastKnownState == .poweredOn){
             flutterResult("true")
@@ -56,7 +57,7 @@ public class SwiftBluetoothEnablePlugin: NSObject, FlutterPlugin, CBCentralManag
           }
           break;
       default:
-          print("Unsupported method: " + call.method)
+          os_log("Unsupported method : %@", log: .default, type: .debug, call.method);
           break;
       }
       
