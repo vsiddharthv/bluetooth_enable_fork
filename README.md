@@ -11,7 +11,7 @@ This plugin is supported only for Android.
 ### Enable Bluetooth
 
 ```dart
-import 'package:bluetooth_enable/bluetooth_enable.dart';
+import 'package:bluetooth_enable_fork/bluetooth_enable.dart';
 
 // Request to turn on Bluetooth within an app
 BluetoothEnable.enableBluetooth.then((result) {
@@ -41,7 +41,7 @@ This method calls an alert from Dart level. Depending on the user's selection, B
 
 
 ```dart
-import  'package:bluetooth_enable/bluetooth_enable.dart';
+import  'package:bluetooth_enable_fork/bluetooth_enable.dart';
 
 Future<void> customEnableBT(BuildContext context) async {
   String dialogTitle = "Hey! Please give me permission to use Bluetooth!";
