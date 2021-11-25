@@ -17,5 +17,9 @@ dev_dependencies:
 
 flutter:
   plugin:
-    androidPackage: com.hui.bluetooth_enable
-    pluginClass: BluetoothEnablePlugin
+    platforms:
+      android:
+        package: com.hui.bluetooth_enable
+        pluginClass: BluetoothEnablePlugin
+      ios:
+        pluginClass: BluetoothEnablePlugin
