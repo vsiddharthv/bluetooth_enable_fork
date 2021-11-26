@@ -1,8 +1,12 @@
+<<<<<<< HEAD
+## 0.1.4
+* Adding iOS support
+
 ## 0.1.3
 * Android V2 embedding
 
 ## 0.1.2
-* Null-safety
+* Upgrade to null-safety
 
 ## 0.1.1
 * Fix typo
