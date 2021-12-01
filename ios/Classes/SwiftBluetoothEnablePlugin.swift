@@ -50,10 +50,13 @@ public class SwiftBluetoothEnablePlugin: NSObject, FlutterPlugin, CBCentralManag
           if(centralManager == nil) {
               centralManager = CBCentralManager(delegate: self, queue: nil)
           }
-          if (flutterResult != nil && lastKnownState == .poweredOn) {
-              result("true")
-          } else if (lastKnownState != .poweredOn) {
-              result("false")
+          
+          else {
+              if (lastKnownState == .poweredOn) {
+                  result("true")
+              } else {
+                  result("false")
+              }
           }
           break;
       default:
