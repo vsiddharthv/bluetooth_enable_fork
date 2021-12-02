@@ -47,16 +47,10 @@ public class SwiftBluetoothEnablePlugin: NSObject, FlutterPlugin, CBCentralManag
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
       switch (call.method) {
       case "enableBluetooth":
-          if(centralManager == nil) {
+          if (lastKnownState == .poweredOn) {
+              result("true")
+          } else {
               centralManager = CBCentralManager(delegate: self, queue: nil)
-          }
-          
-          else {
-              if (lastKnownState == .poweredOn) {
-                  result("true")
-              } else {
-                  result("false")
-              }
           }
           break;
       default:
