@@ -9,7 +9,7 @@ void main() {
 
   setUp(() {
     channel.setMockMethodCallHandler((MethodCall methodCall) async {
-      return '42';
+      return 'true';
     });
   });
 
@@ -17,7 +17,7 @@ void main() {
     channel.setMockMethodCallHandler(null);
   });
 
-  test('getPlatformVersion', () async {
-    expect(await BluetoothEnable.platformVersion, '42');
+  test('getEnableBluetoothResult', () async {
+    expect(await BluetoothEnable.enableBluetooth, 'true');
   });
 }
