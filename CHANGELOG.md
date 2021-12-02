@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## 0.1.4
 * Adding iOS support
 
