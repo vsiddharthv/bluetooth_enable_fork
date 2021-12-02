@@ -62,3 +62,8 @@ Future<void> customEnableBT(BuildContext context) async {
   });
 }
 ```
+
+### iOS support
+
+If Bluetooth has not been activated, a popup window will appear on `enableBluetooth` call asking user to activate Bluetooth in the application settings; 
+the method will immediately return false (but will return true on next call if user enabled Bluetooth in the meantime).

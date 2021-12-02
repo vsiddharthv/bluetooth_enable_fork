@@ -3,11 +3,11 @@
 # Run `pod lib lint bluetooth_enable.podspec' to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'bluetooth_enable'
-  s.version          = '0.0.1'
-  s.summary          = 'A new flutter plugin project.'
+  s.name             = 'bluetooth_enable_fork'
+  s.version          = '0.1.4'
+  s.summary          = 'Flutter plugin to turn on bluetooth within app'
   s.description      = <<-DESC
-A new flutter plugin project.
+Flutter plugin to turn on bluetooth within app
                        DESC
   s.homepage         = 'http://example.com'
   s.license          = { :file => '../LICENSE' }
