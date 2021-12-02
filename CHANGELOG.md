@@ -1,6 +1,7 @@
 ## 0.1.4
 * Adding iOS support
 * Public API is documented
+* `platformVersion` example method has been removed
 
 ## 0.1.3
 * Android V2 embedding
