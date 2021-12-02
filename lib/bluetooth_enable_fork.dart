@@ -5,11 +5,6 @@ import 'package:flutter/services.dart';
 class BluetoothEnable {
   static const MethodChannel _channel = const MethodChannel('bluetooth_enable');
 
-  static Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
-    return version;
-  }
-
   /// Main method of this package.
   ///
   /// This will check if Bluetooth is enabled on the smartphone; if it's not the
