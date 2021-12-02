@@ -1,5 +1,6 @@
 ## 0.1.4
 * Adding iOS support
+* Public API is documented
 
 ## 0.1.3
 * Android V2 embedding
