@@ -65,4 +65,5 @@ Future<void> customEnableBT(BuildContext context) async {
 
 ### iOS support
 
-If Bluetooth has not been activated, a popup window will appear on first `enableBluetooth` call asking the user to activate Bluetooth in the application settings; the popup will appear only once per application lifecycle (even if result is false, it will not appear again).
+If Bluetooth has not been activated, a popup window will appear on `enableBluetooth` call asking user to activate Bluetooth in the application settings; 
+the method will immediately return false (but will return true on next call if user enabled Bluetooth in the meantime).
