@@ -41,7 +41,7 @@ public class BluetoothEnablePlugin implements FlutterPlugin, ActivityAware, Meth
         registrar.addRequestPermissionsResultListener(instance);
     }
 
-    BluetoothEnablePlugin(Registrar r){
+    BluetoothEnablePlugin(Registrar r) {
         this.registrar = r;
         this.activity = r.activity();
         this.channel = new MethodChannel(registrar.messenger(), "bluetooth_enable");
@@ -50,7 +50,7 @@ public class BluetoothEnablePlugin implements FlutterPlugin, ActivityAware, Meth
         channel.setMethodCallHandler(this);
     }
 
-    public BluetoothEnablePlugin(){
+    public BluetoothEnablePlugin() {
         this.onDetachedFromEngine(null);
     }
 
@@ -67,7 +67,7 @@ public class BluetoothEnablePlugin implements FlutterPlugin, ActivityAware, Meth
             {  
                 Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                 activity.startActivityForResult(enableBtIntent, REQUEST_ENABLE_BLUETOOTH);
-                System.out.println("rdddesult: " + result);
+                Log.d(TAG, "rdddesult: " + result);
                 pendingResult = result;
                 break;
             }
@@ -84,8 +84,8 @@ public class BluetoothEnablePlugin implements FlutterPlugin, ActivityAware, Meth
                 }
                 catch(InterruptedException e)
                 {
-                    System.out.println(e);
-                }             
+                    Log.e(TAG, "customEnable", e);
+                }
                 result.success("true");
                 break;
             }
@@ -99,15 +99,13 @@ public class BluetoothEnablePlugin implements FlutterPlugin, ActivityAware, Meth
 
     @Override
     public boolean onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_ENABLE_BLUETOOTH){        
+        if (requestCode == REQUEST_ENABLE_BLUETOOTH) {
           if (resultCode == Activity.RESULT_OK) {
-            Log.d(TAG, "User enabled Bluetooth");
-            System.out.println("User enabled Bluetooth");
+            Log.d(TAG, "onActivityResult: User enabled Bluetooth");
             pendingResult.success("true");
           }
-          else{
-              Log.d(TAG, "User did NOT enabled Bluetooth");
-              System.out.println("User did NOT enabled Bluetooth");
+          else {
+              Log.d(TAG, "onActivityResult: User did NOT enabled Bluetooth");
               pendingResult.success("false");
           }
         }
@@ -124,16 +122,16 @@ public class BluetoothEnablePlugin implements FlutterPlugin, ActivityAware, Meth
                         BluetoothAdapter.ERROR);
                 switch (state) {
                     case BluetoothAdapter.STATE_OFF:
-                        System.out.println("STATE_OFF");
+                        Log.d(TAG, "BroadcastReceiver onReceive: STATE_OFF");
                         break;
                     case BluetoothAdapter.STATE_TURNING_OFF:
-                        System.out.println("STATE_TURNING_OFF");
+                        Log.d(TAG, "BroadcastReceiver onReceive: STATE_TURNING_OFF");
                         break;
                     case BluetoothAdapter.STATE_ON:
-                        System.out.println("STATE_ON");
+                        Log.d(TAG, "BroadcastReceiver onReceive: STATE_ON");
                         break;
                     case BluetoothAdapter.STATE_TURNING_ON:
-                        System.out.println("STATE_TURNING_ON");
+                        Log.d(TAG, "BroadcastReceiver onReceive: STATE_TURNING_ON");
                         break;
                 }
             }
@@ -143,7 +141,7 @@ public class BluetoothEnablePlugin implements FlutterPlugin, ActivityAware, Meth
     @Override
     public boolean onRequestPermissionsResult(
         int requestCode, String[] permissions, int[] grantResults) {
-        System.out.println("TWO");
+        Log.d(TAG, "onRequestPermissionsResult, TWO");
 
         return false;
     }
