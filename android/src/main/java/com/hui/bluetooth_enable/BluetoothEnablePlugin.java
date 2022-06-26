@@ -100,14 +100,23 @@ public class BluetoothEnablePlugin implements FlutterPlugin, ActivityAware, Meth
     @Override
     public boolean onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_ENABLE_BLUETOOTH) {
-          if (resultCode == Activity.RESULT_OK) {
-            Log.d(TAG, "onActivityResult: User enabled Bluetooth");
-            pendingResult.success("true");
-          }
-          else {
-              Log.d(TAG, "onActivityResult: User did NOT enabled Bluetooth");
-              pendingResult.success("false");
-          }
+            if (pendingResult == null) {
+                Log.d(TAG, "onActivityResult: problem: pendingResult is null");
+            } else {
+                try {
+                    if (resultCode == Activity.RESULT_OK) {
+                        Log.d(TAG, "onActivityResult: User enabled Bluetooth");
+                        pendingResult.success("true");
+                    } else {
+                        Log.d(TAG, "onActivityResult: User did NOT enabled Bluetooth");
+                        pendingResult.success("false");
+                    }
+                }
+                catch(IllegalStateException|NullPointerException e)
+                {
+                    Log.d(TAG, "onActivityResult REQUEST_ENABLE_BLUETOOTH", e);
+                }
+            }
         }
         return false;
     }
