@@ -1,3 +1,8 @@
+## 0.1.5
+* Fix issue on Android request
+* Remove prints in production
+* Update Maven repositories
+
 ## 0.1.4
 * Adding iOS support
 * Public API is documented
