@@ -1,3 +1,6 @@
+## 0.1.6
+* Bluetooth can be activated on Android 13
+
 ## 0.1.5
 * Fix issue on Android request
 * Remove prints in production
