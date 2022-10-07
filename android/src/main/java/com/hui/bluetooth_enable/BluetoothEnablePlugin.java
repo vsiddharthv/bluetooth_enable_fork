@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.util.Log;
 import android.content.BroadcastReceiver;
 
+import androidx.core.app.ActivityCompat;
+
 import io.flutter.embedding.engine.plugins.activity.ActivityAware;
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
@@ -61,6 +63,10 @@ public class BluetoothEnablePlugin implements FlutterPlugin, ActivityAware, Meth
             result.error("bluetooth_unavailable", "the device does not have bluetooth", null);
             return;
         }
+
+        ActivityCompat.requestPermissions(this.activity,
+                new String[]{Manifest.permission.BLUETOOTH_CONNECT},
+                REQUEST_ENABLE_BLUETOOTH);
 
         switch (call.method) {
             case "enableBluetooth":
